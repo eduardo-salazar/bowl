@@ -1,6 +1,7 @@
 <html>
 <head>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.0/gh-fork-ribbon.min.css" />
+<link rel="stylesheet" href="/css/style.css">
 	<!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
 
@@ -9,7 +10,25 @@
 </head>
 <body>
 	<body>
-  <nav class="light-blue lighten-1" role="navigation">
+		<script>
+		  window.fbAsyncInit = function() {
+		    FB.init({
+		      appId      : '1585877488392822',
+		      xfbml      : true,
+		      version    : 'v2.5'
+		    });
+		  };
+
+		  (function(d, s, id){
+		     var js, fjs = d.getElementsByTagName(s)[0];
+		     if (d.getElementById(id)) {return;}
+		     js = d.createElement(s); js.id = id;
+		     js.src = "//connect.facebook.net/en_US/sdk.js";
+		     fjs.parentNode.insertBefore(js, fjs);
+		   }(document, 'script', 'facebook-jssdk'));
+		</script>
+	<a href="https://github.com/eduardo-salazar/bowl"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/8b6b8ccc6da3aa5722903da7b58eb5ab1081adee/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_orange_ff7600.png"></a>
+  <!-- <nav  role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">BOwl</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="#"></a></li>
@@ -20,16 +39,21 @@
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
-  </nav>
+  </nav> -->
   <div class="section no-pad-bot" id="index-banner">
+  	<div class="container center">
+  	<img class="logo-index" src="http://images.all-free-download.com/images/graphiclarge/cartoon_owl_clip_art_6762.jpg" alt="baby owl" >
+  		
+  	</div>
     <div class="container">
       <br><br>
-      <h1 class="header center orange-text">Baby Owl help you extract data from facebook.</h1>
+      <h1 class="header center orange-text">Baby Owl helps you extract data from facebook.</h1>
       <div class="row center">
-        <h5 class="header col s12 light">This baby just create a social network of your friends</h5>
+        <h5 class="header col s12 light">This baby just creates a social network of your friends</h5>
       </div>
       <div class="row center">
-        <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange">Facebook Login</a>
+				
+				<div class="fb-login-button" data-max-rows="1" data-size="xlarge" auto-logout-link="true" data-show-faces="false" data-auto-logout-link="false"></div>
       </div>
       <br><br>
 
@@ -76,45 +100,12 @@
     </div>
   </div>  -->
 
-  <footer class="page-footer orange">
-    <div class="container">
-      <div class="row">
-        <!-- <div class="col l6 s12">
-          <h5 class="white-text">Company Bio</h5>
-          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
-
-
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div> -->
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container">
-      Made by <a class="orange-text text-lighten-3" href="https://github.com/eduardo-salazar/bowl">Eduardo Salazar</a>
-      </div>
-    </div>
-  </footer>
+  
 
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  
 
   </body>
 

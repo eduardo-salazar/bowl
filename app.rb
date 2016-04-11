@@ -1,9 +1,14 @@
 require 'sinatra'
 require 'json'
 require_relative 'models/person.rb'
+require_relative 'controllers/facebook_api.rb'
+require 'logger'
+
+
 
 # Configuration Sharing Web Service
 class BabyOwlAPI < Sinatra::Base
+  enable  :sessions, :logging
   set :public_folder, File.expand_path('../public', __FILE__)
 
   get '/?' do
@@ -11,14 +16,17 @@ class BabyOwlAPI < Sinatra::Base
     erb :index
   end
 
-  get '/api/v1/?' do
-    # TODO: show all routes as json with links
+  get '/socialnetwork' do
+    fb = FacebookAPI.new(cookies)
+    puts cookies
+    puts "access toke = #{fb.oauth_access_token}"
   end
 
-  get '/api/v1/projects/?' do
+  get '/auth/:provider/callback' do
     content_type 'application/json'
-
-    JSON.pretty_generate(data: Project.all)
+    tt= MultiJson.encode(request.env)
+    puts "values"
+    puts tt
   end
 
 end

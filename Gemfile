@@ -6,6 +6,7 @@ gem 'thin'
 gem 'json'
 gem 'sequel'
 gem 'koala'
+gem 'omniauth-facebook'
 
 group :development do
   gem 'rerun'

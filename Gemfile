@@ -5,7 +5,7 @@ gem 'sinatra'
 gem 'thin'
 gem 'json'
 gem 'sequel'
-gem 'yaml'
+gem 'koala'
 
 group :development do
   gem 'rerun'

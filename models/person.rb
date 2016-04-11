@@ -1,11 +1,10 @@
 class Person
-	attr_accessible :id, :link, :sex, :name, :img, :mutual_friends
+	attr_accessor :id, :link, :sex, :name, :img, :mutual_friends
 
 	def to_json
-		JSON({  
-            id: id,
+		JSON({  id: id,
             img: img,
-            link: link
+            link: link,
             data: {
               name: name,
               sex: sex,

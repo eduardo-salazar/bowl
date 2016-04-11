@@ -8,6 +8,7 @@ class BabyOwlAPI < Sinatra::Base
 
   get '/?' do
     'BabyOwl web service is up and running at /api/v1'
+    erb :index
   end
 
   get '/api/v1/?' do

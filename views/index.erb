@@ -9,7 +9,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
 </head>
 <body>
-	<body>
 		<script type="text/javascript">
         window.fbAsyncInit = function() {
           FB.init({
@@ -27,7 +26,7 @@
         }(document));
 
         $(function() {
-          $('.b-login-button').click(function(e) {
+          $('.fb-login-button').click(function(e) {
             e.preventDefault();
             FB.login(function(response) {
               if (response.authResponse) {

@@ -24,8 +24,8 @@ class BabyOwlAPI < Sinatra::Base
 
   get '/auth/:provider/callback' do
     content_type 'application/json'
-    tt= MultiJson.encode(request.env)
-    puts "values"
+    cookies = MultiJson.encode(request.env)
+    puts "Gettin params from callback"
     puts tt
   end
 

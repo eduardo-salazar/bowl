@@ -21,6 +21,7 @@ class BabyOwlAPI < Sinatra::Base
   get '/socialnetwork' do
     puts 'Receiving token'
     token = params['token']
+    fb = FacebookAPI.new(token)
   end
 
   get '/auth/:provider/callback' do

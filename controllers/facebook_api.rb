@@ -1,14 +1,12 @@
 require 'koala'
 class FacebookAPI
-	attr_accessor :oauth_access_token
+	attr_accessor :me
 	APP_ID = '1585877488392822'
 	APP_SECRET = '842ac938f5cab333b09cacf7fa769e83'
 
 
 	def initialize(cookies)
-		@oauth ||= Koala::Facebook::OAuth.new(APP_ID, APP_SECRET)
-		values = @oauth.get_user_iracknfo_from_cookies(cookies)
-		oauth_access_token = 'asfasdfasdfsd'
+		parse cookies
 	end
 
 	def my_friends
@@ -19,6 +17,15 @@ class FacebookAPI
 	end
 
 	def to_json
+	end
+
+	def parse(cookies)
+		data = JSON.parse(cookies)
+		@oauth_access_token = data["omniauth.auth"]["credentials"]["token"]
+	end
+
+	def oauth_access_token
+		@oauth_access_token
 	end
 
 

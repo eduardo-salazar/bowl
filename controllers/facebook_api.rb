@@ -9,10 +9,12 @@ class FacebookAPI
 	end
 
 	def my_friends
-		@graph = Koala::Facebook::API.new(@oauth_access_token)
+		@graph ||= Koala::Facebook::API.new(oauth_access_token) # 1.2beta and beyond
+		@graph.get_connections("me", "invitable_friends?limit=1000")
 	end
 
-	def mutual_friends
+	def mutual_friends(friend_id)
+		@graph.get_connections("me", "mutualfriends/#{friend_id}")
 	end
 
 	def to_json

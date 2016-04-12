@@ -19,9 +19,12 @@ class BabyOwlAPI < Sinatra::Base
   end
 
   get '/socialnetwork' do
-    puts 'Receiving token'
     token = params['token']
     fb = FacebookAPI.new(token)
+    # Get list of friends
+    friends = fb.my_friends
+    puts 'response of friends'
+    puts friends.size
   end
 
   get '/auth/:provider/callback' do

@@ -11,41 +11,6 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 </head>
 <body>
-		<div id="fb-root"></div>
-      <script type="text/javascript">
-        window.fbAsyncInit = function() {
-          FB.init({
-            appId  : '1585877488392822',
-            status : true, // check login status
-            cookie : true, // enable cookies to allow the server to access the session
-            xfbml  : true,  // parse XFBML
-            version: 'v2.5'
-          });
-        };
-        (function(d) {
-          var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
-          js = d.createElement('script'); js.id = id; js.async = true;
-          js.src = "//connect.facebook.net/en_US/all.js";
-          d.getElementsByTagName('head')[0].appendChild(js);
-        }(document));
-        $(function() {
-          $('#fb-connect').click(function(e) {
-            e.preventDefault();
-            FB.login(function(response) {
-              if (response.authResponse) {
-                $('#connect').html('Connected! Hitting OmniAuth callback (GET /auth/facebook/callback)...');
-                // since we have cookies enabled, this request will allow omniauth to parse
-                // out the auth code from the signed request in the fbsr_XXX cookie
-                $.getJSON('/auth/facebook/callback', function(json) {
-                  $('#connect').html('Connected! Callback complete.');
-                  $('#results').html(JSON.stringify(json));
-                });
-              }
-            }, { scope: 'email,user_friends', state: 'abc123' });
-          });
-        });
-      </script>
-
 	<a href="https://github.com/eduardo-salazar/bowl"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/8b6b8ccc6da3aa5722903da7b58eb5ab1081adee/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_orange_ff7600.png"></a>
   <!-- <nav  role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">BOwl</a>
@@ -71,14 +36,6 @@
         <h5 class="header col s12 light">This baby just creates a social network of your friends</h5>
       </div>
       <div class="row center">
-				
-				
-
-				<p id="connect">
-        <a id="fb-connect" href="/socialnetwork">Connect to FB!</a>
-      </p>
-      <p id="results" />
-
       	<section class="login-form-wrap">
 				  <h1>Facebook</h1>
 				  <form class="login-form" method="POST" action="/socialnetwork">

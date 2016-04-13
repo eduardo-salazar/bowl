@@ -45,8 +45,20 @@ class FacebookScapper
 		visit(me.link + FRIENDS_URL)
 		friend_number = find("a[name='All Friends']").find('span:nth-of-type(2)').text
 		puts "Total number of friends #{friend_number}"
-		friends_cards = find("div[id*='collection_wrapper']").find_all("li")
+		friends_cards = find_all("ul[data-pnref='friends'] > li")
 		puts "Elements found #{friends_cards.size}"
+		# scroll_exist = find_all("img[class*='async_saving']")
+		# puts 'Invented element'
+		# puts scroll_exist.size
+		end_friends = find_all(".uiHeaderTitle")
+		until end_friends.size > 1 do
+			page.execute_script "window.scrollBy(0,10000)"
+			sleep 0.5
+			end_friends = find_all(".uiHeaderTitle")
+			friends_cards = find_all("ul[data-pnref='friends'] > li")
+			puts "Elements found #{friends_cards.size} - #{end_friends.size}"
+		end
+
 	end
 
 	def mutual_friends(friend_id)

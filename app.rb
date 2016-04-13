@@ -29,8 +29,9 @@ class BabyOwlAPI < Sinatra::Base
     fb.authenticate
     me = fb.me
     
-    fb.my_friends
-    "My name is #{me.name}"
+    arr_friends.push(*fb.my_friends)
+    
+    fb.to_neo4j
     # fb = FacebookAPI.new(token)
 
 

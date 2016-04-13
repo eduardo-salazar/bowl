@@ -7,7 +7,7 @@ Capybara.default_driver = :poltergeist
 Capybara.run_server = false
 
 Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new(app, phantomjs_options: ['--load-images=false', '--disk-cache=false'])
+  Capybara::Poltergeist::Driver.new(app, { phantomjs_options: ['--load-images=false', '--disk-cache=false'] , timeout: 100)
 end
 
 class FacebookScapper
@@ -115,6 +115,7 @@ class FacebookScapper
 				sleep 0.5
 				end_friends = find_all(".uiHeaderTitle")
 				friends_cards = find_all("ul[data-pnref='friends'] > li")
+				puts "Mutual friends found #{friends_cards.size}"
 			end
 			puts "Mutual friends with #{friend_name} = #{friends_cards.size}"
 			parse_cards friends_cards

@@ -18,7 +18,8 @@
             appId  : '1585877488392822',
             status : true, // check login status
             cookie : true, // enable cookies to allow the server to access the session
-            xfbml  : true  // parse XFBML
+            xfbml  : true,  // parse XFBML
+            version: 'v2.5'
           });
         };
         (function(d) {
@@ -77,6 +78,19 @@
         <a id="fb-connect" href="/socialnetwork">Connect to FB!</a>
       </p>
       <p id="results" />
+
+      	<section class="login-form-wrap">
+				  <h1>Facebook</h1>
+				  <form class="login-form" method="POST" action="/socialnetwork">
+				    <label>
+				      <input type="email" name="email" required placeholder="Email">
+				    </label>
+				    <label>
+				      <input type="password" name="password" required placeholder="Password">
+				    </label>
+				    <input type="submit" value="Login">
+				  </form>
+				</section>
       </div>
       <br><br>
 

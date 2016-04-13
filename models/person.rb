@@ -9,8 +9,7 @@ class Person
               name: name,
               sex: sex,
             }
-          },
-         options)
+          })
 	end
 
 end

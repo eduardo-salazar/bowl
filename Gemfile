@@ -4,9 +4,10 @@ ruby '2.2.3'
 gem 'sinatra'
 gem 'thin'
 gem 'json'
-gem 'sequel'
-gem 'koala'
 gem 'omniauth-facebook'
+gem 'capybara'
+gem 'poltergeist'
+
 
 group :development do
   gem 'rerun'

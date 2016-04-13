@@ -2,6 +2,7 @@ require 'sinatra'
 require 'json'
 require_relative 'models/person.rb'
 require_relative 'controllers/facebook_api.rb'
+require_relative 'controllers/facebook_scrapper.rb'
 require 'logger'
 
 
@@ -11,20 +12,50 @@ class BabyOwlAPI < Sinatra::Base
   enable  :sessions, :logging
   set :public_folder, File.expand_path('../public', __FILE__)
 
-  @fb = nil
-
   get '/?' do
     'BabyOwl web service is up and running at /api/v1'
     erb :index
   end
 
-  get '/socialnetwork' do
+  post '/socialnetwork' do
     token = params['token']
-    fb = FacebookAPI.new(token)
-    # Get list of friends
-    friends = fb.my_friends
-    puts 'response of friends'
-    puts friends.size
+    arr_friends = Array.new
+    me = Person.new
+
+    fb = FacebookScapper.new(params["email"],params["password"])
+    puts 'params'
+    puts params
+
+    fb.authenticate
+    me = fb.me
+    
+    fb.my_friends
+    "My name is #{me.name}"
+    # fb = FacebookAPI.new(token)
+
+
+    # # Get list of friends
+    # friends = fb.my_friends
+    # friends.each do |friend|
+    #   new_person = Person.new
+    #   new_person.id = friend["id"]
+    #   new_person.name = friend["name"]
+    #   new_person.img = friend["picture"]["data"]["url"]
+    #   arr_friends << new_person
+    #   puts new_person.to_json
+    # end
+
+
+    # # Getting me Object
+    # me_data = fb.me
+    # me.id = me_data["id"]
+    # me.name = me_data["name"]
+    
+    # # Getting mutual friends
+    # puts 'testing mutual'
+    # humberto_mutual = fb.mutual_friends('100010454044190')
+    # puts 'Humbero mutual friends'
+    # puts humberto_mutual
   end
 
   get '/auth/:provider/callback' do

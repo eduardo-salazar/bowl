@@ -7,7 +7,7 @@ gem 'json'
 gem 'omniauth-facebook'
 gem 'capybara'
 gem 'poltergeist'
-
+gem 'phantomjs'
 
 group :development do
   gem 'rerun'

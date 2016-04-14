@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'json'
 require_relative 'models/person.rb'
-require_relative 'controllers/facebook_api.rb'
+#require_relative 'controllers/facebook_api.rb'
 require_relative 'controllers/facebook_scrapper.rb'
 require 'logger'
 

@@ -45,6 +45,7 @@ GEM
     omniauth-oauth2 (1.4.0)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
+    phantomjs (2.1.1.0)
     poltergeist (1.9.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
@@ -99,6 +100,7 @@ DEPENDENCIES
   json
   minitest
   omniauth-facebook
+  phantomjs
   poltergeist
   rack
   rack-test

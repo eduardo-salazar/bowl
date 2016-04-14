@@ -19,6 +19,7 @@ class FacebookScapper
 	MUTUAL_URL = "/friends_mutual"
 
 	def initialize(username, user_pass)
+		Capybara.reset_sessions!
 		@email = username
 		@password = user_pass
 	end

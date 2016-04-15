@@ -4,6 +4,7 @@ require_relative 'models/person.rb'
 #require_relative 'controllers/facebook_api.rb'
 require_relative 'controllers/facebook_scrapper.rb'
 require 'logger'
+require 'pusher'
 
 
 
@@ -11,6 +12,13 @@ require 'logger'
 class BabyOwlAPI < Sinatra::Base
   enable  :sessions, :logging
   set :public_folder, File.expand_path('../public', __FILE__)
+
+  pusher_client = Pusher::Client.new(
+      app_id: ENV['pusher_app_id'],
+      key: ENV['pusher_key'],
+      secret: ENV['pusher_secret'],
+      encrypted: true
+    )
 
   get '/?' do
     'BabyOwl web service is up and running at /api/v1'

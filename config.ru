@@ -1,5 +1,6 @@
 require './app.rb'
 require 'omniauth-facebook'
+require 'figaro'
 
 APP_ID = '1585877488392822'
 APP_SECRET = '842ac938f5cab333b09cacf7fa769e83'

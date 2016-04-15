@@ -1,6 +1,17 @@
 @import "compass/css3";
 
+#console p {
+	padding: 4px 10px;
+	margin: 0;
+}
 
+#console {
+	margin: 0 auto;
+	text-align: left;
+	background: black;
+	color: white;
+	font-size: smaller;
+}
 
 .login-form-wrap {
 	background: rgb(81,112,173);

@@ -4,19 +4,23 @@ $(document).ready(function(){
 
 
   // Instantiate Pusher
-  var pusher = new Pusher('a92b1daa6fedc78d32a6') // Change it to your Pusher APP Key
-  var channel = pusher.subscribe('signup_process_'+uID) // The Channel you want to subscribe to
+  var pusher = new Pusher('a92b1daa6fedc78d32a6', {
+      encrypted: true
+    });
+  var channel = pusher.subscribe('sn_'+uID) // The Channel you want to subscribe to
 
   channel.bind('update', function(data) { // Bind to an event on our channel, in our case, update
-    var messageBox = $('#fb-login').children('.messages')
+    var messageBox = $('#fprogress-container').children('.messages')
     var progressBar = $('#realtime-progress-bar')
 
     progressBar.width(data.progress+"%")
     messageBox.html(data.message)
+    $('#console').append('<p>' + data.message + '</p>');
 
     // Process is complete,Do whatever you want now, maybe redirect them to their freshly created account?
     if (data.progress == 100) {
       messageBox.html('Process Completed')
+      
     }
   });
 
@@ -29,15 +33,18 @@ $(document).ready(function(){
     var btn = $(form).find('button')
     var progressBar = $('#progress-container').find('.progress')
     progressBar.removeClass('hide')
+    $('#console').removeClass('hide')
     btn.prop('disabled', true)
 
-    $.post( $(form).attr('action'),{name: name, uid: uID} , function () {
+    $.post( $(form).attr('action'),{email: username, password: password, uid: uID} , function () {
     }).done(function(response) {
       btn.prop('disabled', false)
-
+      $('#final-output').removeClass('hide')
+      $('#final-output').append(response)
       progressBar.toggleClass('active')
       if (!$(form).attr('id')) {
         $(form).children('.messages').html(response)
+        
       }
     })
   })

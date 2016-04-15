@@ -47,7 +47,7 @@ class FacebookScapper
 	end
 
 	def my_friends
-		visit(me.link + FRIENDS_URL)
+		visit(@me.link + FRIENDS_URL)
 		friend_number = find("a[name='All Friends']").find('span:nth-of-type(2)').text
 		friends_cards = find_all("ul[data-pnref='friends'] > li")
 		end_friends = find_all(".uiHeaderTitle")
@@ -56,6 +56,7 @@ class FacebookScapper
 			sleep 0.5
 			end_friends = find_all(".uiHeaderTitle")
 			friends_cards = find_all("ul[data-pnref='friends'] > li")
+			puts "Friends found #{friends_cards.size}"
 		end
 		puts "Friends found #{friends_cards.size}"
 		@friends = parse_cards(friends_cards)

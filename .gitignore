@@ -1,3 +1,5 @@
 db/
 config/application.yml
 spec/test_access_token.yml
+# Ignore application configuration
+/config/application.yml

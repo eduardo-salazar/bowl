@@ -54,8 +54,8 @@ class BabyOwlAPI < Sinatra::Base
         p.mutual_friends = Array.new
       end
       puts "#{i}/#{friends_count} - Mutual Friend with #{p.name} (#{p.mutual_friends.size})"
-      progress = Integer(i)/ Integer(friends_count) * 100 - 1
-      progress = (progress < 0 ) ? 0 : progress 
+      progress = Float(i)/ Float(friends_count) * 100 - 1
+      progress = (progress < 0 ) ? 0 : progress
       pusher_client.trigger("sn_#{uID}", 'update', {message: "#{sprintf('%.2f', progress)} % #{i}/#{friends_count} - Mutual Friend with #{p.name} (#{p.mutual_friends.size})", progress:  (i/friends_count)*100 })
       p
     end

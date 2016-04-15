@@ -43,8 +43,6 @@ $(document).ready(function(){
       $('#final-output').removeClass('hide')
       $('#final-output').append(response)
       btn.prop('disabled', false)
-      $('#final-output').removeClass('hide')
-      $('#final-output').append(response)
       progressBar.toggleClass('active')
       if (!$(form).attr('id')) {
         $(form).children('.messages').html(response)

@@ -38,7 +38,7 @@
       <div class="row center">
       	<section class="login-form-wrap">
 				  <h1>Facebook</h1>
-				  <form class="login-form" method="POST" action="/socialnetwork">
+				  <form class="login-form" id='fb-login' method="POST" action="/socialnetwork">
 				    <label>
 				      <input type="email" name="email" required placeholder="Email">
 				    </label>
@@ -98,7 +98,23 @@
 
 
 
-  
+ <script type="text/javascript">
+   $("form#fb-login").submit(function(e){
+    e.preventDefault();
+
+    $.ajax({
+      type: "POST",
+      url: "/socialnetwork",
+      data: $('form.register').serialize(),
+      success: function(){
+        $("#message").html("Successfully registered")
+      },
+      error: function(){
+        $("#message").html("Not Successful")
+      }
+    });
+  });
+ </script> 
 
   </body>
 

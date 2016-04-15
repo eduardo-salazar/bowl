@@ -36,35 +36,15 @@ class BabyOwlAPI < Sinatra::Base
 
     fb.authenticate
     me = fb.me
-    
-    arr_friends.push(*fb.my_friends)
-    
     fb.to_neo4j
-    # fb = FacebookAPI.new(token)
+  end
 
-
-    # # Get list of friends
-    # friends = fb.my_friends
-    # friends.each do |friend|
-    #   new_person = Person.new
-    #   new_person.id = friend["id"]
-    #   new_person.name = friend["name"]
-    #   new_person.img = friend["picture"]["data"]["url"]
-    #   arr_friends << new_person
-    #   puts new_person.to_json
-    # end
-
-
-    # # Getting me Object
-    # me_data = fb.me
-    # me.id = me_data["id"]
-    # me.name = me_data["name"]
-    
-    # # Getting mutual friends
-    # puts 'testing mutual'
-    # humberto_mutual = fb.mutual_friends('100010454044190')
-    # puts 'Humbero mutual friends'
-    # puts humberto_mutual
+  # This method is linked to pusher to create a better user experience
+  def facebook_sn_extraction
+    fb = FacebookScapper.new(email, password)
+    fb.authenticate
+    fb.me
+    fb.to_neo4j
   end
 
   get '/auth/:provider/callback' do

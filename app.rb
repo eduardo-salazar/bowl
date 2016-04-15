@@ -48,11 +48,9 @@ class BabyOwlAPI < Sinatra::Base
     friends = friends.map do |p| 
       puts "Element #{i}/#{friends_count}"
       i += 1
-      if i <= 3
-        p.mutual_friends = fb.mutual_friends p.id, p.name 
-      else
-        p.mutual_friends = Array.new
-      end
+      
+      p.mutual_friends = fb.mutual_friends p.id, p.name 
+      
       puts "#{i}/#{friends_count} - Mutual Friend with #{p.name} (#{p.mutual_friends.size})"
       progress = Float(i)/ Float(friends_count) * 100 - 1
       progress = (progress < 0 ) ? 0 : progress

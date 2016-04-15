@@ -44,25 +44,26 @@ class BabyOwlAPI < Sinatra::Base
     friends_count = friends.size
     puts "Total Friends found #{friends_count}"
     pusher_client.trigger("sn_#{uID}", 'update', {message: "Total Friends found #{friends_count}", progress:  1 })
-    i = 1
+    i = 0
     friends = friends.map do |p| 
       puts "Element #{i}/#{friends_count}"
       i += 1
-      if i <= 10
+      if i <= 3
         p.mutual_friends = fb.mutual_friends p.id, p.name 
       else
         p.mutual_friends = Array.new
       end
       puts "#{i}/#{friends_count} - Mutual Friend with #{p.name} (#{p.mutual_friends.size})"
-      progress = (i/friends_count)*100 - 1
+      progress = Integer(i)/ Integer(friends_count) * 100 - 1
       progress = (progress < 0 ) ? 0 : progress 
-      pusher_client.trigger("sn_#{uID}", 'update', {message: "#{(progress} % #{i}/#{friends_count} - Mutual Friend with #{p.name} (#{p.mutual_friends.size})", progress:  (i/friends_count)*100 })
+      pusher_client.trigger("sn_#{uID}", 'update', {message: "#{sprintf('%.2f', progress)} % #{i}/#{friends_count} - Mutual Friend with #{p.name} (#{p.mutual_friends.size})", progress:  (i/friends_count)*100 })
       p
     end
     
     pusher_client.trigger("sn_#{uID}", 'update', {message: "99 % Generating files......", progress:  99 })
-    generate_files(me,friends)
+    output = generate_files(me,friends)
     pusher_client.trigger("sn_#{uID}", 'update', {message: "100 % Process complete.....", progress:  (i/friends_count)*100 })
+    output
   end
 
   def generate_files(me, friends)

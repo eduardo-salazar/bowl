@@ -38,6 +38,10 @@ $(document).ready(function(){
 
     $.post( $(form).attr('action'),{email: username, password: password, uid: uID} , function () {
     }).done(function(response) {
+      console.log('Finished')
+      console.log(response)
+      $('#final-output').removeClass('hide')
+      $('#final-output').append(response)
       btn.prop('disabled', false)
       $('#final-output').removeClass('hide')
       $('#final-output').append(response)

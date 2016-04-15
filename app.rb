@@ -48,7 +48,7 @@ class BabyOwlAPI < Sinatra::Base
       else
         p.mutual_friends = Array.new
       end
-      Pusher.trigger(pusher_channel, 'update', {message: "#{i}/#{friends_count}", progress:  (i/friends_count)})
+      Pusher.trigger("sn_#{me.id}", 'update', {message: "#{i}/#{friends_count} - Mutual Friend with #{p.name} (#{p.mutual_friends})", progress:  (i/friends_count)*100 })
       p
     end
     

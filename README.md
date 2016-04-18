@@ -11,8 +11,26 @@ This small app extract from your facebook account your friends and also the mutu
 *   `{your_id}_nodes.csv` - This file contains a list of all your friends (id,name,link)
 *		`{your_fb_id}_edges` - This file contains a list of the connection between your nodes
 
-How to run
+Installation
 -----------
+
+If you wan to run the app locally 
+
+Install dependencies
+```
+bundle install
+```
+
+Run sinatra app locally
+```
+puma
+```
+
+Load the app in your browser
+```
+http://localhost:3000/
+```
+
 
 Maintenance
 -----------

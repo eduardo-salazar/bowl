@@ -5,6 +5,15 @@ BOwl - Baby Owl
 
 **Found a bug? Interested in contributing?** Check out and let me know xD
 
+Description
+-----------
+This small app extract from your facebook account your friends and also the mutual friends you have with every friend. At the end it creates two files:
+*   `{your_id}_nodes.csv` - This file contains a list of all your friends (id,name,link)
+*		`{your_fb_id}_edges` - This file contains a list of the connection between your nodes
+
+How to run
+-----------
+
 Maintenance
 -----------
 

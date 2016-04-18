@@ -93,6 +93,10 @@ class FacebookScapper
 		end
 	end
 
+	def close
+		
+	end
+
 	def get(friend)
 	end
 

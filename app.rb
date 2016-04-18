@@ -104,8 +104,8 @@ class BabyOwlAPI < Sinatra::Base
 
     script += "// How to create your social network in Gephi: <br/>"
     script += "/ 1. Download the files <br/>"
-    script += "/    1.1 <a href='/#{me.id}_nodes.csv' download='#{me.id}_nodes'>Nodes</a> <br/>"
-    script += "/    1.2 <a href='/#{me.id}_edges.csv' download='#{me.id}_edges'>Edges</a> <br/><br/>"
+    script += "/    1.1 <a href='/exports/#{me.id}_nodes.csv' download='#{me.id}_nodes'>Nodes</a> <br/>"
+    script += "/    1.2 <a href='/exports/#{me.id}_edges.csv' download='#{me.id}_edges'>Edges</a> <br/><br/>"
     script += "/ 2. Open Gephi (<a href='https://gephi.org/'>https://gephi.org/</a>) <br/>"
     script += "/ 3. Import csv files (nodes, edges) from File -> Import spreadsheet <br/>"
     script += "/    Note: Make sure nodes.csv is imported as Nodes tables and edges.csv as Edges table <br/>"
